@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/CudaRuntime1.vcxproj
+/.gitignore
+/kernel.exe
+/cpp.hint
