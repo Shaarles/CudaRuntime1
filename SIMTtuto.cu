@@ -41,7 +41,7 @@ int main() {
 	cudaMalloc(&dev_input_data, blockSize.x * sizeof(int));
 	cudaMalloc(&dev_output_data, blockSize.x * sizeof(int));
 
-
+	example_syncthreads << <gridSize, blockSize >> > (dev_input_data, dev_output_data);
 
 	// Free resources
 	cudaFree(dev_input_data);

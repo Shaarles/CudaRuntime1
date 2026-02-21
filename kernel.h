@@ -5,4 +5,7 @@
 #include <string>
 #include <chrono>
 #include <stdio.h>
+#include "Vector.cpp"
+#include "initArray.h"
+
 using namespace std;

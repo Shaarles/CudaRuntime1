@@ -1,5 +1,4 @@
-﻿#include "Vector.cpp"
-#include "kernel.h"
+﻿#include "kernel.h"
 
 
 __global__ void add(float* a, float*b, float* c, int vector_length ){
@@ -19,11 +18,6 @@ void add_cpu_vers(float* a, float* b, float* c, int vector_length) {
 	}
 }
 
-void initArray(float* arr, int length) {
-	for (int i = 0; i < length; i++) {
-		arr[i] = 1.0f;
-	}
-}
 
 bool compareResults(float* a, float* b, int length) {
 	for (int i = 0; i < length; i++) {

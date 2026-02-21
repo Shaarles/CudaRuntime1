@@ -1,4 +1,6 @@
 #include "initArray.h"
+
+
 void initArray(float* arr, int length) {
 	for (int i = 0; i < length; i++) {
 		arr[i] = 1.0f;
