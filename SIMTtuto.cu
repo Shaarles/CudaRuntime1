@@ -55,7 +55,7 @@ int main() {
 	cudaMalloc(&dev_output_data, gridSize.x * sizeof(int));
 
 	// Initialize input data on the host and copy to device
-	initArray(dev_output_data, blockSize.x); // Assuming this function initializes the input data
+	initArray(dev_input_data, blockSize.x); // Assuming this function initializes the input data
 
 	example_syncthreads << <gridSize, blockSize >> > (dev_input_data, dev_output_data);
 	
@@ -63,11 +63,11 @@ int main() {
 	cudaMemcpy(output_data, dev_output_data,gridSize.x * sizeof(int), cudaMemcpyDeviceToHost);
 
 	//printing output array
-	printArray(output_data, blockSize.x);
-
+	printArray(output_data, gridSize.x);
 	// Free resources
 	cudaFree(dev_input_data);
 	cudaFree(dev_output_data);
+	free(output_data);
 
 	return 0;
 }
