@@ -42,7 +42,7 @@ __global__ void example_syncthreads_dynamic_allocation(int* input_data, int* out
 	}
 
 }
-/*
+
 __global__ void example_syncthreads_dicho(int* input_data, int* output_data) {
 	__shared__ int shared_data[256]; // Assuming blockDim.x = 256
 	//every thread loads its data into shared memory
@@ -52,14 +52,14 @@ __global__ void example_syncthreads_dicho(int* input_data, int* output_data) {
 
 	// Now all threads can safely read from shared_data
 	//A single thread can perform some operation on the shared data
-	int n = shared_data.length; 
+	int n = 256; 
 	int sum = 0;
 	while (n < 1) {
 
-		n /= 2;
+		
 	}
 }
-*/
+
 
 int main() {
 
