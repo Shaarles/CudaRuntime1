@@ -12,3 +12,10 @@ void printArray(int* arr, int length) {
 		cout << arr[i] << endl;
 	}
 }
+
+//overloaded function for float array
+void printArray(float* arr, int length) {
+	for (int i = 0; i < length; i++) {
+		cout << arr[i] << endl;
+	}
+}

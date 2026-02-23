@@ -16,6 +16,7 @@ __global__ void example_syncthreads(int* input_data, int* output_data) {
 		}
 		output_data[blockIdx.x] = sum; // Store the result for this block
 	}
+
 }	
 /*
 __global__ void example_syncthreads_dicho(int* input_data, int* output_data) {
@@ -53,13 +54,16 @@ int main() {
 	cudaMalloc(&dev_input_data, blockSize.x * sizeof(int));
 	cudaMalloc(&dev_output_data, gridSize.x * sizeof(int));
 
+	// Initialize input data on the host and copy to device
+	initArray(dev_output_data, blockSize.x); // Assuming this function initializes the input data
+
 	example_syncthreads << <gridSize, blockSize >> > (dev_input_data, dev_output_data);
 	
 	//copying into host memory
 	cudaMemcpy(output_data, dev_output_data,gridSize.x * sizeof(int), cudaMemcpyDeviceToHost);
 
 	//printing output array
-	printArray(output_data, gridSize.x);
+	printArray(output_data, blockSize.x);
 
 	// Free resources
 	cudaFree(dev_input_data);
