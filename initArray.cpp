@@ -6,6 +6,12 @@ void initArray(float* arr, int length) {
 		arr[i] = 1.0f;
 	}
 }
+//overloaded function for int array
+void initArray(int* arr, int length) {
+	for (int i = 0; i < length; i++) {
+		arr[i] = 1.0f;
+	}
+}
 
 void printArray(int* arr, int length) {
 	for (int i = 0; i < length; i++) {
